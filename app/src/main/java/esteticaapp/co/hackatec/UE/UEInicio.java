@@ -1,8 +1,13 @@
 package esteticaapp.co.hackatec.UE;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -15,8 +20,11 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -72,7 +80,14 @@ public class UEInicio extends AppCompatActivity implements OnMapReadyCallback{
                 viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
                         LatLng puntoViaje = new LatLng(model.getLatitud(), model.getLongitud());
+                        mMap.addMarker(new MarkerOptions()
+                                .position(puntoViaje)
+                                .title(model.getNombreChofer())
+                                .snippet(model.getLatitud()+","+model.getLongitud())
+                                .icon(bitmapDescriptorFromVector(UEInicio.this,R.drawable.ic_transporte))
+                        );
                         CameraPosition cameraPosition = new CameraPosition.Builder().target(puntoViaje).zoom(15).build();
                         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                     }
@@ -108,5 +123,13 @@ public class UEInicio extends AppCompatActivity implements OnMapReadyCallback{
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.setMyLocationEnabled(true);
 
+    }
+    private BitmapDescriptor bitmapDescriptorFromVector(Context context, @DrawableRes int vectorResId) {
+        Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorResId);
+        vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
+        Bitmap bitmap = Bitmap.createBitmap(vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        vectorDrawable.draw(canvas);
+        return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
 }
