@@ -49,6 +49,14 @@ public class UEInicio extends AppCompatActivity implements OnMapReadyCallback{
         setContentView(R.layout.activity_ueinicio);
         
         Registrar = (Button) findViewById(R.id.Registrar);
+        
+        Registrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), UERegistroViaje.class);
+                startActivity(intent);
+            }
+        });
 
         mMapView = findViewById(R.id.mapaUbicacionTransporte);
         if (mMapView != null) {
