@@ -30,6 +30,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             ></activity>
+        <activity
+            android:name=".UE.UERegistroViaje"
+            android:label="UERegistroViaje"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            ></activity>
     </application>
 
 </manifest>
