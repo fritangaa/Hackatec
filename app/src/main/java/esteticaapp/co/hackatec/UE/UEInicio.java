@@ -1,6 +1,7 @@
 package esteticaapp.co.hackatec.UE;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -27,6 +28,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import android.widget.Button;
 
 import esteticaapp.co.hackatec.R;
 
@@ -39,12 +41,23 @@ public class UEInicio extends AppCompatActivity implements OnMapReadyCallback{
 
     private FirebaseRecyclerAdapter<ObjViaje,ObjViajeViewHolder.ViewHolder> adapterListaViaje;
     private RecyclerView listaViajes;
+    
+    Button Registrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ueinicio);
-
+        
+        Registrar = (Button) findViewById(R.id.Registrar);
+        
+        Registrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), UERegistroViaje.class);
+                startActivity(intent);
+            }
+        });
 
         mMapView = findViewById(R.id.mapaUbicacionTransporte);
         if (mMapView != null) {
