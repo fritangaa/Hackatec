@@ -2,4 +2,12 @@
     <string name="app_name">Hackatec</string>
     <string name="title_activity_uminicio">UMInicio</string>
     <string name="title_activity_urinicio">URInicio</string>
+
+    <string-array name="tipoCarga">
+        <item>Elija una opción</item>
+        <item>Perecederos</item>
+        <item>Electrónicos</item>
+        <item>Maquinaria</item>
+        <item>Autopartes</item>
+    </string-array>
 </resources>

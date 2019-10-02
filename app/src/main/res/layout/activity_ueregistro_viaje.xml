@@ -66,14 +66,15 @@
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/UEDestino"
                 android:text="Tipo de carga"
-                android:textSize="30dp"/>
+                android:textSize="30sp"/>
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/UETipoCarga"
                 android:layout_marginTop="20dp"
-                android:layout_below="@id/UETxtCarga"/>
+                android:layout_below="@id/UETxtCarga"
+                android:entries="@array/tipoCarga"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -82,7 +83,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/UETipoCarga"
                 android:text="Dimensión"
-                android:textSize="30dp"/>
+                android:textSize="30sp"/>
 
             <EditText
                 android:id="@+id/UEDimension"
@@ -104,7 +105,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/UEtxtDimension"
                 android:text="Peso"
-                android:textSize="30dp"/>
+                android:textSize="30sp"/>
 
             <EditText
                 android:id="@+id/UEPeso"
@@ -126,7 +127,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/UEtxtPeso"
                 android:text="Día y hora de llegada"
-                android:textSize="30dp"/>
+                android:textSize="30sp"/>
 
             <TimePicker
                 android:id="@+id/UEHoraLlegada"
@@ -150,6 +151,8 @@
                 android:inputType="text"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/UEHoraLlegada"
+                android:maxDate="10/05/2020"
+                android:minDate="10/05/2019"
                 android:textSize="20sp"/>
 
             <TextView
@@ -159,7 +162,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/UEDiaLlegada"
                 android:text="Día y hora de salida"
-                android:textSize="30dp"/>
+                android:textSize="30sp"/>
 
             <TimePicker
                 android:id="@+id/UEHoraSalida"
@@ -183,6 +186,8 @@
                 android:inputType="text"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/UEHoraSalida"
+                android:maxDate="10/05/2020"
+                android:minDate="10/05/2019"
                 android:textSize="20sp"/>
 
             <Button
