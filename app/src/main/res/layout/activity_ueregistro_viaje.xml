@@ -96,7 +96,8 @@
                 android:layout_below="@id/UETipoCarga"
                 android:layout_toEndOf="@+id/UEtxtDimension"
                 android:layout_toRightOf="@+id/UEtxtDimension"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:hint="00*00*00"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -129,7 +130,7 @@
                 android:text="Día y hora de llegada"
                 android:textSize="30sp"/>
 
-            <TimePicker
+            <Spinner
                 android:id="@+id/UEHoraLlegada"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
@@ -139,9 +140,10 @@
                 android:inputType="text"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/UEtxtLlegada"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:entries="@array/hora"/>
 
-            <DatePicker
+            <EditText
                 android:id="@+id/UEDiaLlegada"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
@@ -151,8 +153,7 @@
                 android:inputType="text"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/UEHoraLlegada"
-                android:maxDate="10/05/2020"
-                android:minDate="10/05/2019"
+                android:hint="dd/mm/yyyy"
                 android:textSize="20sp"/>
 
             <TextView
@@ -164,7 +165,7 @@
                 android:text="Día y hora de salida"
                 android:textSize="30sp"/>
 
-            <TimePicker
+            <Spinner
                 android:id="@+id/UEHoraSalida"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
@@ -174,9 +175,10 @@
                 android:inputType="text"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/UEtxtSalida"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:entries="@array/hora"/>
 
-            <DatePicker
+            <EditText
                 android:id="@+id/UEDiaSalida"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
@@ -186,8 +188,7 @@
                 android:inputType="text"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/UEHoraSalida"
-                android:maxDate="10/05/2020"
-                android:minDate="10/05/2019"
+                android:hint="dd/mm/yyyy"
                 android:textSize="20sp"/>
 
             <Button
