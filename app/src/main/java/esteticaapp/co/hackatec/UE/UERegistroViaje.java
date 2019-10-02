@@ -5,20 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import esteticaapp.co.hackatec.R;
 
 public class UERegistroViaje extends AppCompatActivity {
 
-    EditText origen,destino,dimension,peso;
-    DatePicker diaLlegada,diaSalida;
-    TimePicker horaLlegada,horaSalida;
-    Spinner tipoCarga;
+    EditText origen,destino,dimension,peso,diaLlegada,diaSalida;
+    Spinner tipoCarga,horaLlegada,horaSalida;
     Button buscar;
 
     @Override
@@ -30,10 +26,10 @@ public class UERegistroViaje extends AppCompatActivity {
         tipoCarga = (Spinner) findViewById(R.id.UETipoCarga);
         dimension = (EditText) findViewById(R.id.UEDimension);
         peso = (EditText) findViewById(R.id.UEPeso);
-        horaLlegada = (TimePicker) findViewById(R.id.UEHoraLlegada);
-        horaSalida = (TimePicker) findViewById(R.id.UEHoraSalida);
-        diaLlegada = (DatePicker) findViewById(R.id.UEDiaLlegada);
-        diaSalida = (DatePicker) findViewById(R.id.UEDiaSalida);
+        horaLlegada = (Spinner) findViewById(R.id.UEHoraLlegada);
+        horaSalida = (Spinner) findViewById(R.id.UEHoraSalida);
+        diaLlegada = (EditText) findViewById(R.id.UEDiaLlegada);
+        diaSalida = (EditText) findViewById(R.id.UEDiaSalida);
         buscar = (Button) findViewById(R.id.UEBuscarTransporte);
     }
 
@@ -43,20 +39,33 @@ public class UERegistroViaje extends AppCompatActivity {
         buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if((!origen.getText().toString().isEmpty()) && (!destino.getText().toString().isEmpty())){
+                if((!origen.getText().toString().isEmpty()) || (!destino.getText().toString().isEmpty())){
                     if(!tipoCarga.getSelectedItem().toString().equals("Elija una opción")){
-                        if((!dimension.getText().toString().isEmpty()) && (!peso.getText().toString().isEmpty())){
-                            Intent intent = new Intent(getApplicationContext(),UERegistroViaje.class);
-                            intent.putExtra("ORIGEN", origen.getText().toString());
-                            intent.putExtra("DESTINO",destino.getText().toString());
-                            intent.putExtra("CARGA",tipoCarga.getSelectedItem().toString());
-                            intent.putExtra("DIMENSION",dimension.getText().toString());
-                            intent.putExtra("PESO",peso.getText().toString());
-                            intent.putExtra("HORALLEGADA",horaLlegada.toString());
-                            intent.putExtra("HORASALIDA",horaSalida.toString());
-                            intent.putExtra("DIALLEGADA",diaLlegada.toString());
-                            intent.putExtra("DIASALIDA",diaSalida.toString());
-                            startActivity(intent);
+                        if((!dimension.getText().toString().isEmpty()) || (!peso.getText().toString().isEmpty())){
+                            if((!horaLlegada.getSelectedItem().toString().isEmpty()) || (!horaSalida.getSelectedItem().toString().isEmpty())){
+                                if(dimension.getText().toString().matches("[1-99](\\*)[1-99](\\*)[1-99]")){
+                                    if((diaLlegada.getText().toString().matches("([012][1-9]|3[01])(\\/)(0[1-9]|1[012])(\\/)2019"))
+                                            && (diaSalida.getText().toString().matches("([012][1-9]|3[01])(\\/)(0[1-9]|1[012])(\\/)2019"))){
+                                        Intent intent = new Intent(getApplicationContext(),UEViajeDisponible.class);
+                                        intent.putExtra("ORIGEN", origen.getText().toString());
+                                        intent.putExtra("DESTINO",destino.getText().toString());
+                                        intent.putExtra("CARGA",tipoCarga.getSelectedItem().toString());
+                                        intent.putExtra("DIMENSION",dimension.getText().toString());
+                                        intent.putExtra("PESO",peso.getText().toString());
+                                        intent.putExtra("HORALLEGADA",horaLlegada.toString());
+                                        intent.putExtra("HORASALIDA",horaSalida.toString());
+                                        intent.putExtra("DIALLEGADA",diaLlegada.toString());
+                                        intent.putExtra("DIASALIDA",diaSalida.toString());
+                                        startActivity(intent);
+                                    }else{
+                                        Toast.makeText(getApplicationContext(), "El formato de los días debe ser dd/mm/yyyy", Toast.LENGTH_SHORT).show();
+                                    }
+                                }else{
+                                    Toast.makeText(getApplicationContext(), "El formato de las dimensiones deben ser 00*00*00", Toast.LENGTH_SHORT).show();
+                                }
+                            }else{
+                                Toast.makeText(getApplicationContext(),"Ingrese la hora de llegada y de salida",Toast.LENGTH_SHORT).show();
+                            }
                         }else{
                             Toast.makeText(getApplicationContext(),"Ingrese la dimensión y el peso del envío",Toast.LENGTH_SHORT).show();
                         }
