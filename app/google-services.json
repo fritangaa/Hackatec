@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "488934586260",
+    "firebase_url": "https://hackatec-af62a.firebaseio.com",
+    "project_id": "hackatec-af62a",
+    "storage_bucket": "hackatec-af62a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488934586260:android:b47d661254be1eadef4181",
+        "android_client_info": {
+          "package_name": "esteticaapp.co.hackatec"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488934586260-4lb3itrqu4mcbq4u90352r1nu5skdkln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEiahYL5Nl4D3LOAQyYScRedlhwgP2I0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488934586260-4lb3itrqu4mcbq4u90352r1nu5skdkln.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
