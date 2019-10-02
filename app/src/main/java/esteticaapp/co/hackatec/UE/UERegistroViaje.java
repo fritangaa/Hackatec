@@ -46,7 +46,7 @@ public class UERegistroViaje extends AppCompatActivity {
                 if((!origen.getText().toString().isEmpty()) && (!destino.getText().toString().isEmpty())){
                     if(!tipoCarga.getSelectedItem().toString().equals("Elija una opción")){
                         if((!dimension.getText().toString().isEmpty()) && (!peso.getText().toString().isEmpty())){
-                            Intent intent = new Intent(getApplicationContext(),UEViajesDisponibles.class);
+                            Intent intent = new Intent(getApplicationContext(),UERegistroViaje.class);
                             intent.putExtra("ORIGEN", origen.getText().toString());
                             intent.putExtra("DESTINO",destino.getText().toString());
                             intent.putExtra("CARGA",tipoCarga.getSelectedItem().toString());

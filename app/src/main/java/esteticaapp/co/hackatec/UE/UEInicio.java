@@ -27,10 +27,10 @@ public class UEInicio extends AppCompatActivity implements OnMapReadyCallback{
     private GoogleMap mMap;
     private MapView mMapView;
 
-    private DatabaseReference transportistasDatabase;
+    private DatabaseReference viajesDatabase;
 
-    private FirebaseRecyclerAdapter<ObjTransportistas,ObjTransportistasViewHolder.ViewHolder> adapterListaTransportistas;
-    private RecyclerView listaTransportistas;
+    private FirebaseRecyclerAdapter<ObjViaje,ObjViajeViewHolder.ViewHolder> adapterListaViaje;
+    private RecyclerView listaViajes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,40 +46,42 @@ public class UEInicio extends AppCompatActivity implements OnMapReadyCallback{
         }
 
 
-        transportistasDatabase= FirebaseDatabase.getInstance().getReference().child("/transportistas/");
+        viajesDatabase = FirebaseDatabase.getInstance().getReference().child("/viajes/");
 
-        listaTransportistas = findViewById(R.id.listaTransportes);
+        listaViajes = findViewById(R.id.listaTransportes);
 
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(UEInicio.this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        listaTransportistas.setLayoutManager(linearLayoutManager);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        listaViajes.setLayoutManager(linearLayoutManager);
 
 
-        adapterListaTransportistas=new FirebaseRecyclerAdapter<ObjTransportistas, ObjTransportistasViewHolder.ViewHolder>(
-                ObjTransportistas.class,
-                R.layout.obj_lista_transportistas,
-                ObjTransportistasViewHolder.ViewHolder.class,
-                transportistasDatabase
+        adapterListaViaje=new FirebaseRecyclerAdapter<ObjViaje, ObjViajeViewHolder.ViewHolder>(
+                ObjViaje.class,
+                R.layout.obj_lista_viaje,
+                ObjViajeViewHolder.ViewHolder.class,
+                viajesDatabase
         ) {
             @Override
-            protected void populateViewHolder(final ObjTransportistasViewHolder.ViewHolder viewHolder,
-                                              final ObjTransportistas model, final int position) {
-                viewHolder.nombre.setText(model.getNombre());
+            protected void populateViewHolder(final ObjViajeViewHolder.ViewHolder viewHolder,
+                                              final ObjViaje model, final int position) {
+                viewHolder.nombre.setText(model.getNombreChofer());
                 viewHolder.fechaLlegada.setText(model.getDiaLlegada()+" - "+model.getHoraLlegada());
                 viewHolder.fechaSalida.setText(model.getDiaSalida()+" - "+model.getHoraSalida());
-                viewHolder.precio.setText(String.valueOf(model.getPrecio()));
+                viewHolder.precio.setText(String.valueOf(model.getCosto()));
 
                 viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        viewHolder.cardView.setBackgroundColor(ContextCompat.getColor(UEInicio.this, R.color.colorGrisClaro));
+                        LatLng puntoViaje = new LatLng(model.getLatitud(), model.getLongitud());
+                        CameraPosition cameraPosition = new CameraPosition.Builder().target(puntoViaje).zoom(15).build();
+                        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                     }
                 });
 
             }
         };
 
-        listaTransportistas.setAdapter(adapterListaTransportistas);
+        listaViajes.setAdapter(adapterListaViaje);
     }
 
     @Override
@@ -104,12 +106,7 @@ public class UEInicio extends AppCompatActivity implements OnMapReadyCallback{
         }
 
         mMap.getUiSettings().setZoomControlsEnabled(true);
-
-        LatLng ediTics = new LatLng(19.257010, -99.579551);
         mMap.setMyLocationEnabled(true);
-        CameraPosition cameraPosition = new CameraPosition.Builder().target(ediTics).zoom(15).build();
-        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-
 
     }
 }
