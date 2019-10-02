@@ -27,6 +27,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import android.widget.Button;
 
 import esteticaapp.co.hackatec.R;
 
@@ -39,12 +40,15 @@ public class UEInicio extends AppCompatActivity implements OnMapReadyCallback{
 
     private FirebaseRecyclerAdapter<ObjViaje,ObjViajeViewHolder.ViewHolder> adapterListaViaje;
     private RecyclerView listaViajes;
+    
+    Button Registrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ueinicio);
-
+        
+        Registrar = (Button) findViewById(R.id.Registrar);
 
         mMapView = findViewById(R.id.mapaUbicacionTransporte);
         if (mMapView != null) {
