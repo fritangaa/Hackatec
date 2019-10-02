@@ -1,6 +1,7 @@
 package esteticaapp.co.hackatec.UE;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
