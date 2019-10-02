@@ -8,4 +8,7 @@
     <color name="colorGris">#b7b7b7</color>
     <color name="colorGrisClaro">#9ed1f4</color>
     <color name="colorNegro">#000000</color>
+
+    <color name="colorRadioButtonOff">#2980b9</color>
+    <color name="colorRadioButtonOn">#3498db</color>
 </resources>

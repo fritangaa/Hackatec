@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/img_fondo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registro">
+
+    <RadioGroup
+        android:id="@+id/usuarioRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/registroTransportista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:button="@drawable/bg_registro_transportista"
+            android:onClick="eveclik" />
+
+        <RadioButton
+            android:id="@+id/registroEmpresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:button="@drawable/bg_registro_empresa"
+            android:onClick="eveclik" />
+
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/txtTransportista"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:visibility="visible"
+        android:layout_marginLeft="40dp"
+        android:layout_alignTop="@+id/usuarioRegistro"
+        android:layout_toEndOf="@+id/usuarioRegistro"
+        android:text="Transportista"
+        android:textColor="@color/colorBlanco"
+        android:textAlignment="center"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/txtEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:visibility="invisible"
+        android:layout_marginLeft="40dp"
+        android:layout_alignTop="@+id/usuarioRegistro"
+        android:layout_toEndOf="@+id/usuarioRegistro"
+        android:text="Empresa"
+        android:textColor="@color/colorBlanco"
+        android:textAlignment="center"
+        android:textSize="25dp" />
+
+    <RelativeLayout
+        android:id="@+id/relativeTransportista"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/usuarioRegistro"
+        android:visibility="visible">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeEmpresa"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/usuarioRegistro"
+        android:visibility="invisible">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
