@@ -66,14 +66,114 @@
         android:id="@+id/relativeTransportista"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
+        android:layout_margin="15dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/usuarioRegistro"
         android:visibility="visible">
 
-        <Button
+        <ImageView
+            android:id="@+id/imagenTPerfil"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_perfil_defecto" />
+
+        <EditText
+            android:id="@+id/textoTNombre"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imagenTPerfil"
+            android:drawableLeft="@drawable/ic_usuario"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="@color/colorBlanco"
+            android:textColorHint="@color/colorBlancoHint"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/textoTTelefono"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/textoTNombre"
+            android:layout_toEndOf="@+id/imagenTPerfil"
+            android:drawableLeft="@drawable/ic_telefono"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Teléfono"
+            android:inputType="number"
+            android:maxLength="10"
+            android:padding="10dp"
+            android:textColor="@color/colorBlanco"
+            android:textColorHint="@color/colorBlancoHint"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/textoTRFC"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textoTTelefono"
+            android:drawableLeft="@drawable/ic_calendario"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="RFC"
+            android:padding="10dp"
+            android:textColor="@color/colorBlanco"
+            android:textColorHint="@color/colorBlancoHint"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/textoTCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textoTRFC"
+            android:drawableLeft="@drawable/ic_correo"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Correo"
+            android:inputType="textWebEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/colorBlanco"
+            android:textColorHint="@color/colorBlancoHint"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/textoTContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textoTCorreo"
+            android:drawableLeft="@drawable/ic_contrasena"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="***********"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@color/colorBlanco"
+            android:textColorHint="@color/colorBlancoHint"
+            android:textSize="20dp" />
+
+
+        <Button
+            android:id="@+id/botonTGuardar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/textoTContrasena"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_blanco_redondo"
+            android:text="Guardar"
+            android:textColor="@color/colorNegro" />
 
     </RelativeLayout>
 
