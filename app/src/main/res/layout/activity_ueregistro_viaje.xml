@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UERegistroViaje">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/UERegistroViaje"
+        tools:layout_editor_absoluteX="198dp"
+        tools:layout_editor_absoluteY="341dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/UEtxtOrigen"
+                android:layout_marginTop="5dp"
+                android:text="Origen"
+                android:textSize="30sp"/>
+
+            <EditText
+                android:id="@+id/UEOrigen"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="74dp"
+                android:layout_marginStart="74dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/UEtxtOrigen"
+                android:layout_toRightOf="@+id/UEtxtOrigen"
+                android:inputType="text"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/UEtxtDestino"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/UEOrigen"
+                android:text="Destino"
+                android:textSize="30sp"/>
+
+            <EditText
+                android:id="@+id/UEDestino"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/UEOrigen"
+                android:layout_marginLeft="57dp"
+                android:layout_marginStart="57dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/UEtxtDestino"
+                android:layout_toRightOf="@+id/UEtxtDestino"
+                android:inputType="text"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/UETxtCarga"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/UEDestino"
+                android:text="Tipo de carga"
+                android:textSize="30dp"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/UETipoCarga"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/UETxtCarga"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/UEtxtDimension"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/UETipoCarga"
+                android:text="Dimensión"
+                android:textSize="30dp"/>
+
+            <EditText
+                android:id="@+id/UEDimension"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="20dp"
+                android:inputType="text"
+                android:layout_below="@id/UETipoCarga"
+                android:layout_toEndOf="@+id/UEtxtDimension"
+                android:layout_toRightOf="@+id/UEtxtDimension"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/UEtxtPeso"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/UEtxtDimension"
+                android:text="Peso"
+                android:textSize="30dp"/>
+
+            <EditText
+                android:id="@+id/UEPeso"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/UEDimension"
+                android:layout_marginLeft="93dp"
+                android:layout_marginStart="93dp"
+                android:layout_marginTop="18dp"
+                android:layout_toEndOf="@+id/UEtxtPeso"
+                android:layout_toRightOf="@+id/UEtxtPeso"
+                android:inputType="text"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/UEtxtLlegada"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/UEtxtPeso"
+                android:text="Día y hora de llegada"
+                android:textSize="30dp"/>
+
+            <TimePicker
+                android:id="@+id/UEHoraLlegada"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="20dp"
+                android:inputType="text"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/UEtxtLlegada"
+                android:textSize="20sp"/>
+
+            <DatePicker
+                android:id="@+id/UEDiaLlegada"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="20dp"
+                android:inputType="text"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/UEHoraLlegada"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/UEtxtSalida"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/UEDiaLlegada"
+                android:text="Día y hora de salida"
+                android:textSize="30dp"/>
+
+            <TimePicker
+                android:id="@+id/UEHoraSalida"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="20dp"
+                android:inputType="text"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/UEtxtSalida"
+                android:textSize="20sp"/>
+
+            <DatePicker
+                android:id="@+id/UEDiaSalida"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="20dp"
+                android:inputType="text"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/UEHoraSalida"
+                android:textSize="20sp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/UEBuscarTransporte"
+                android:text="Buscar"
+                android:textSize="20sp"
+                android:layout_below="@id/UEDiaSalida"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
