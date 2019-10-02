@@ -1,8 +1,12 @@
 package esteticaapp.co.hackatec;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,7 +24,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import esteticaapp.co.hackatec.UM.UMInicio;
+import esteticaapp.co.hackatec.UE.UEInicio;
 import esteticaapp.co.hackatec.preferencias.GuardarUsuario;
 
 public class Login extends AppCompatActivity {
@@ -47,11 +51,22 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) ==
+                PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
+                        PackageManager.PERMISSION_GRANTED) {
+        } else {
+            ActivityCompat.requestPermissions(this, new String[] {
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION },
+                    1);
+        }
+
 
         databaseReference = FirebaseDatabase.getInstance().getReference();//temp
 
         if(GuardarUsuario.obtenerPreferenceBoolean(this,GuardarUsuario.PREFERENCE_ESTADO_BUTTON_SESION)){
-            Intent intencion = new Intent(getApplication(), UMInicio.class);
+            Intent intencion = new Intent(getApplication(), UEInicio.class);
             startActivity(intencion);
             finish();
         }
@@ -134,7 +149,7 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             GuardarUsuario.savePreferenceBoolean(Login.this,ckRecuerdame.isChecked(),GuardarUsuario.PREFERENCE_ESTADO_BUTTON_SESION);
                             Toast.makeText(Login.this, "Bienvenido: " + correo, Toast.LENGTH_SHORT).show();
-                            Intent intencion = new Intent(getApplication(), UMInicio.class);
+                            Intent intencion = new Intent(getApplication(), UEInicio.class);
                             startActivity(intencion);
                             finish();
 

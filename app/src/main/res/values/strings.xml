@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Hackatec</string>
     <string name="title_activity_uminicio">UMInicio</string>
+    <string name="title_activity_urinicio">URInicio</string>
 </resources>
