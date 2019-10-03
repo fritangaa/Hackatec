@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UT.UTNuevoChofer">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginTop="10dp"
+                android:text="Nombre"
+                android:id="@+id/txtChoferNombre"/>
+
+            <EditText
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/UTChoferNombre"
+                android:layout_toRightOf="@id/txtChoferNombre"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
+                android:text="Primer apellido"
+                android:layout_below="@id/txtChoferNombre"
+                android:id="@+id/txtChoferApellidoP"/>
+
+            <EditText
+                android:layout_width="190dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/UTChoferApellidoP"
+                android:layout_below="@id/UTChoferNombre"
+                android:layout_toRightOf="@id/txtChoferApellidoP"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
+                android:text="Segundo apellido"
+                android:layout_below="@id/txtChoferApellidoP"
+                android:id="@+id/txtChoferApellidoM"/>
+
+            <EditText
+                android:layout_width="190dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/UTChoferApellidoM"
+                android:layout_below="@id/UTChoferApellidoP"
+                android:layout_toRightOf="@id/txtChoferApellidoM"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
+                android:text="Nickname"
+                android:layout_below="@id/txtChoferApellidoM"
+                android:id="@+id/txtChoferNickname"/>
+
+            <EditText
+                android:id="@+id/UTChoferNickname"
+                android:layout_width="251dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/UTChoferApellidoM"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/txtChoferNickname" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
+                android:text="Email"
+                android:layout_below="@id/txtChoferNickname"
+                android:id="@+id/txtChoferEmail"/>
+
+            <EditText
+                android:id="@+id/UTChoferEmail"
+                android:layout_width="261dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/UTChoferNickname"
+                android:layout_marginLeft="67dp"
+                android:layout_marginTop="4dp"
+                android:layout_toRightOf="@id/txtChoferEmail" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
+                android:text="Contraseña"
+                android:layout_below="@id/txtChoferEmail"
+                android:id="@+id/txtChoferContrasenia"/>
+
+            <EditText
+                android:id="@+id/UTChoferContrasenia"
+                android:layout_width="226dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/UTChoferEmail"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/txtChoferContrasenia"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
+                android:text="Confirmar contraseña"
+                android:layout_below="@id/txtChoferContrasenia"
+                android:id="@+id/txtChoferContrasenia2"/>
+
+            <EditText
+                android:id="@+id/UTChoferContrasenia2"
+                android:layout_width="261dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/UTChoferContrasenia"
+                android:layout_marginLeft="-222dp"
+                android:layout_marginTop="71dp"
+                android:layout_toRightOf="@id/txtChoferContrasenia2"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
+                android:text="Tipo de cuenta"
+                android:layout_below="@id/UTChoferContrasenia2"
+                android:id="@+id/txtChoferCuenta"/>
+
+            <EditText
+                android:id="@+id/UTChoferCuenta"
+                android:layout_width="191dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/UTChoferContrasenia2"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="11dp"
+                android:layout_toRightOf="@id/txtChoferCuenta"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
+                android:text="Telefono"
+                android:layout_below="@id/txtChoferCuenta"
+                android:id="@+id/txtChoferTel"/>
+
+            <EditText
+                android:id="@+id/UTChoferTel"
+                android:layout_width="191dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/UTChoferCuenta"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="11dp"
+                android:layout_toRightOf="@id/txtChoferTel"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
+                android:text="Sexo"
+                android:layout_below="@id/txtChoferTel"
+                android:id="@+id/txtChoferSexo"/>
+
+            <Spinner
+                android:id="@+id/UTChoferSexo"
+                android:layout_width="191dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/UTChoferTel"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="11dp"
+                android:layout_toRightOf="@id/txtChoferSexo"
+                android:entries="@array/sexo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
+                android:text="N.S.S."
+                android:layout_below="@id/txtChoferSexo"
+                android:id="@+id/txtChoferNSS"/>
+
+            <EditText
+                android:id="@+id/UTChoferNSS"
+                android:layout_width="191dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/UTChoferSexo"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="11dp"
+                android:layout_toRightOf="@id/txtChoferNSS"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
+                android:text="Empresa"
+                android:layout_below="@id/txtChoferNSS"
+                android:id="@+id/txtChoferEmpresa"/>
+
+            <EditText
+                android:id="@+id/UTChoferEmpresa"
+                android:layout_width="191dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/UTChoferNSS"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="11dp"
+                android:layout_toRightOf="@id/txtChoferEmpresa" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Registrar"
+                android:textSize="20sp"
+                android:layout_below="@id/UTChoferEmpresa"/>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
