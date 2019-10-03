@@ -107,9 +107,9 @@ public class UTDatosFragment extends Fragment {
             protected void populateViewHolder(final ObjSensoresViewHolder.ViewHolder viewHolder,
                                               final ObjSensores model, final int position) {
                 viewHolder.nombre.setText("Viaje: "+model.getIdViaje());
-                viewHolder.temperatura.setText("Temperatura en caja: "+String.valueOf(model.getTemperatura()));
-                viewHolder.proximidad.setText("Distancia entre cargamento: "+String.valueOf(model.getProximidad()));
-                viewHolder.humedad.setText("Humedad en caja: "+String.valueOf(model.getHumedad()));
+                viewHolder.temperatura.setText("Temperatura en caja: "+String.valueOf(model.getTemperatura()+"°C"));
+                viewHolder.proximidad.setText("Distancia entre cargamento: "+String.valueOf(model.getProximidad()+" M"));
+                viewHolder.humedad.setText("Porcentaje de humedad: "+String.valueOf(model.getHumedad()+"%"));
 
                 viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
                     @Override

@@ -234,7 +234,11 @@ public class UTInicio extends AppCompatActivity
         boolean fragmentSeleccionado = false;
 
 
-        if (id == R.id.nav_notificaciones) {
+        if (id == R.id.nav_inicio) {
+            Intent intent = new Intent(getApplicationContext(), UTInicio.class);
+            startActivity(intent);
+            finish();
+        } else if (id == R.id.nav_notificaciones) {
             miFragment = new UTNotificacionesFragment();
             fragmentSeleccionado = true;
         } else if (id == R.id.nav_datos) {
@@ -243,10 +247,11 @@ public class UTInicio extends AppCompatActivity
         } else if (id == R.id.navigation_new) {
             Intent intent = new Intent(getApplicationContext(), UTNuevoTransporte.class);
             startActivity(intent);
+            finish();
         } else if (id == R.id.navigation_driver) {
             Intent intent = new Intent(getApplicationContext(), UTNuevoChofer.class);
             startActivity(intent);
-
+            finish();
         }
 
         if (fragmentSeleccionado == true) {
