@@ -20,7 +20,7 @@
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapaUbicacionTransporte"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:layout_below="@+id/textoInicioUE"
         android:layout_margin="15dp"
         android:layout_centerHorizontal="true"
@@ -31,22 +31,23 @@
         android:id="@+id/listaTransportes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/Registrar"
         android:layout_margin="15dp"
         android:layout_marginTop="15dp"
         android:layout_below="@id/mapaUbicacionTransporte"
         android:layout_alignParentStart="true" />
-    
+
     <Button
+        android:id="@+id/Registrar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/bg_blanco_redondo"
-        android:id="@+id/Registrar"
         android:layout_margin="15dp"
-        android:textAllCaps="false"
-        android:text="Nuevo viaje"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:layout_below="@+id/listaTransportes" />
+        android:background="@drawable/bg_blanco_redondo"
+        android:text="Nuevo viaje"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
 
 
 </RelativeLayout>
