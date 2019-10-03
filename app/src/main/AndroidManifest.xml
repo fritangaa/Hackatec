@@ -18,6 +18,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAPfUXuGp3TmSeHC8aHWIrpsjwhue9vBVQ" />
         
+        <activity android:name=".UT.UTNuevoChofer"></activity>
+        <activity android:name=".UT.UTNuevoTransporte" />
+        
         <activity android:name=".UT.UTDatosServicio"></activity>
 
         <activity
