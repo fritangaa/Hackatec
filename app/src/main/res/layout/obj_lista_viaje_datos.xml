@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardview_viaje_datos"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
+    android:layout_height="wrap_content"
     android:layout_marginTop="6dp"
     android:layout_marginBottom="6dp"
     >
@@ -42,7 +42,7 @@
             android:layout_height="25dp"
             android:layout_marginLeft="10dp"
             android:layout_below="@+id/obj_viaje_temperatura"
-            android:layout_toEndOf="@+id/obj_viaje_temperatura"
+            android:layout_alignParentStart="true"
             android:hint="27/05/2019 - 15:00"
             android:textColor="@color/colorNegro"
             android:textSize="15dp" />
@@ -51,8 +51,8 @@
             android:id="@+id/obj_viaje_humedad"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:layout_alignStart="@+id/obj_viaje_nombre"
-            android:layout_below="@+id/obj_viaje_nombre"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/obj_viaje_proximidad"
             android:hint="$1250"
             android:textColor="@color/colorNegro"
             android:textSize="15dp" />

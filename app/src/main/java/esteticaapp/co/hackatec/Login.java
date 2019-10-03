@@ -25,7 +25,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import esteticaapp.co.hackatec.UE.UEInicio;
-import esteticaapp.co.hackatec.UT.UTInicio;
 import esteticaapp.co.hackatec.preferencias.GuardarUsuario;
 
 public class Login extends AppCompatActivity {
@@ -119,7 +118,7 @@ public class Login extends AppCompatActivity {
                 //databaseReference.child("Cliente").child("-LZ7qvRwVs31M-cE2G8D").child("promociones").push().child("nombre").setValue(txtCorreo.getText().toString());
                 //Toast.makeText(Login.this, "datos", Toast.LENGTH_SHORT).show();
                 //Intent intencion = new Intent(getApplication(), Registro.class);
-                Intent intencion = new Intent(getApplication(), UTInicio.class);
+                Intent intencion = new Intent(getApplication(), Registro.class);
                 startActivity(intencion);
                 finish();
             }

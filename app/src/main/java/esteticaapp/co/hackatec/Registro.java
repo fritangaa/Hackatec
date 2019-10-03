@@ -31,7 +31,9 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.Calendar;
 
+import esteticaapp.co.hackatec.UE.ObjEmpresa;
 import esteticaapp.co.hackatec.UE.ObjTransportistas;
+import esteticaapp.co.hackatec.UE.UEInicio;
 import esteticaapp.co.hackatec.UT.UTInicio;
 
 public class Registro extends AppCompatActivity {
@@ -67,6 +69,17 @@ public class Registro extends AppCompatActivity {
     private EditText textoTRFC;
     private EditText textoTCorreo;
     private EditText textoTContrasena;
+
+    private Button botonRegistrarEmpresa;
+
+    private EditText textoENombreEmpresa;
+    private EditText textoETelefono;
+    private EditText textoEDireccion;
+    private EditText textoEResponsable;
+    private EditText textoERFC;
+    private EditText textoECorreo;
+    private EditText textoEContrasena;
+
 
     private FirebaseAuth auth;
     private StorageReference mStorage;
@@ -106,6 +119,17 @@ public class Registro extends AppCompatActivity {
 
         botonRegistrarTransportista = (Button) findViewById(R.id.botonTGuardar);
 
+
+        textoENombreEmpresa = (EditText) findViewById(R.id.textoENombreEmpresa);
+        textoETelefono = (EditText) findViewById(R.id.textoETelefono);
+        textoEDireccion = (EditText) findViewById(R.id.textoEDireccion);
+        textoEResponsable = (EditText) findViewById(R.id.textoEResponsable);
+        textoERFC = (EditText) findViewById(R.id.textoERFC);
+        textoECorreo = (EditText) findViewById(R.id.textoECorreo);
+        textoEContrasena = (EditText) findViewById(R.id.textoEContrasena);
+
+        botonRegistrarEmpresa = (Button) findViewById(R.id.botonEGuardar);
+
         MaterialDialog.Builder builder = new MaterialDialog.Builder(this)
                 .title("Registrando")
                 .content("Espere...")
@@ -117,6 +141,14 @@ public class Registro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 validaUsuarioTransportista();
+
+            }
+        });
+
+        botonRegistrarEmpresa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                validaUsuarioEmpresa();
 
             }
         });
@@ -204,6 +236,98 @@ public class Registro extends AppCompatActivity {
                                     databaseReference.child("usuarioTransportistas").push().setValue(nuevoTransportista);
 
                                     Intent siguiente = new Intent(Registro.this, UTInicio.class);//vamos a la ventana de la confirmacion
+                                    dialog.dismiss();
+                                    startActivity(siguiente);
+                                    finish();
+
+                                }else if (task.getException()!=null){
+                                    Toast.makeText(Registro.this,"No se pudo registrar el usuario ",Toast.LENGTH_LONG).show();
+                                }
+                                dialog.dismiss();
+                            }
+                        });
+                }else if (task.getException()!=null){
+                    Toast.makeText(Registro.this,"Error en correo o contraseña",Toast.LENGTH_LONG).show();
+                    dialog.dismiss();
+                }
+
+
+            }
+        });
+
+
+    }
+
+    private void validaUsuarioEmpresa(){
+
+        //Obtenemos el email y la contraseña desde las cajas de texto
+        final String password  = textoEContrasena.getText().toString().trim();
+        final String nombre = textoENombreEmpresa.getText().toString();
+        final String correo = textoECorreo.getText().toString();
+        final String rfc = textoERFC.getText().toString();
+        final String telefono = textoETelefono.getText().toString();
+        final String direccion = textoEDireccion.getText().toString();
+        final String responsable = textoEResponsable.getText().toString();
+
+        //Verificamos que las cajas de texto no esten vacías
+
+
+        if(TextUtils.isEmpty(password)){
+            Toast.makeText(this,"Falta ingresar la contraseña",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(nombre)){
+            Toast.makeText(this,"Falta ingresar el nombre",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(telefono)){
+            Toast.makeText(this,"Falta ingresar el telefono",Toast.LENGTH_SHORT).show();
+            return;
+        }else if(telefono.length()<10){
+            Toast.makeText(this,"El telefono no esta completo",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(correo)){
+            Toast.makeText(this,"Falta ingresar el correo",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(rfc)){
+            Toast.makeText(this,"Falta seleccionar imagen de perfil",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(direccion)){
+            Toast.makeText(this,"Falta la dirección",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(responsable)){
+            Toast.makeText(this,"Falta ingresar al responsable",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        dialog.show();
+        //creating a new user
+        auth.createUserWithEmailAndPassword(correo, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
+                            .setDisplayName(nombre)
+                            .build();
+                    FirebaseUser user = auth.getCurrentUser();
+                    if (user!=null)
+                        user.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()){
+                                    ObjEmpresa nuevaEmpresa = new ObjEmpresa(password,nombre,correo,rfc,telefono,direccion,responsable);
+
+                                    databaseReference.child("usuarioEmpresa").push().setValue(nuevaEmpresa);
+
+                                    Intent siguiente = new Intent(Registro.this, UEInicio.class);//vamos a la ventana de la confirmacion
                                     dialog.dismiss();
                                     startActivity(siguiente);
                                     finish();
