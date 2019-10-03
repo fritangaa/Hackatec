@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img_fondo"
     tools:context=".UE.UERegistroViaje">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="15dp"
         android:id="@+id/UERegistroViaje"
         tools:layout_editor_absoluteX="198dp"
         tools:layout_editor_absoluteY="341dp">
@@ -19,185 +21,200 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:id="@+id/UEtxtOrigen"
                 android:layout_marginTop="5dp"
-                android:text="Origen"
-                android:textSize="30sp"/>
+                android:text="Origen:"
+                android:textColor="@color/colorBlanco"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/UEOrigen"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="74dp"
-                android:layout_marginStart="74dp"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@+id/UEtxtOrigen"
-                android:layout_toRightOf="@+id/UEtxtOrigen"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/bg_blanco_redondo"
                 android:inputType="text"
+                android:textColor="@color/colorNegro"
                 android:textSize="20sp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/UEtxtDestino"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/UEOrigen"
-                android:text="Destino"
-                android:textSize="30sp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/UEtxtOrigen"
+                android:text="Destino:"
+                android:textColor="@color/colorBlanco"
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/UEDestino"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_below="@id/UEOrigen"
-                android:layout_marginLeft="57dp"
-                android:layout_marginStart="57dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/UEtxtDestino"
-                android:layout_toRightOf="@+id/UEtxtDestino"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/UEOrigen"
+                android:background="@drawable/bg_blanco_redondo"
                 android:inputType="text"
+                android:textColor="@color/colorNegro"
                 android:textSize="20sp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/UETxtCarga"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/UEDestino"
-                android:text="Tipo de carga"
-                android:textSize="30sp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/UEtxtDestino"
+                android:text="Tipo de carga:"
+                android:textColor="@color/colorBlanco"
+                android:textSize="20dp" />
 
             <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/UETipoCarga"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/UETxtCarga"
-                android:entries="@array/tipoCarga"/>
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/UEDestino"
+                android:background="@drawable/bg_blanco_redondo"
+                android:entries="@array/tipoCarga"
+                android:textColor="@color/colorNegro" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/UEtxtDimension"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/UETipoCarga"
-                android:text="Dimensión"
-                android:textSize="30sp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/UETxtCarga"
+                android:text="Dimensión:"
+                android:textColor="@color/colorBlanco"
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/UEDimension"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="21dp"
-                android:layout_marginStart="21dp"
-                android:layout_marginTop="20dp"
-                android:inputType="text"
-                android:layout_below="@id/UETipoCarga"
-                android:layout_toEndOf="@+id/UEtxtDimension"
-                android:layout_toRightOf="@+id/UEtxtDimension"
-                android:textSize="20sp"
-                android:hint="00*00*00"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/UEtxtPeso"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/UEtxtDimension"
-                android:text="Peso"
-                android:textSize="30sp"/>
-
-            <EditText
-                android:id="@+id/UEPeso"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_below="@id/UEDimension"
-                android:layout_marginLeft="93dp"
-                android:layout_marginStart="93dp"
-                android:layout_marginTop="18dp"
-                android:layout_toEndOf="@+id/UEtxtPeso"
-                android:layout_toRightOf="@+id/UEtxtPeso"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_blanco_redondo"
+                android:textColor="@color/colorNegro"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/UETipoCarga"
+                android:hint="00*00*00"
                 android:inputType="text"
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/UEtxtPeso"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/UEtxtDimension"
+                android:text="Peso:"
+                android:textColor="@color/colorBlanco"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/UEPeso"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_blanco_redondo"
+                android:textColor="@color/colorNegro"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/UEDimension"
+                android:inputType="text"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/UEtxtLlegada"
-                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
                 android:layout_below="@id/UEtxtPeso"
-                android:text="Día y hora de llegada"
-                android:textSize="30sp"/>
+                android:layout_alignParentStart="true"
+                android:text="Día y hora de llegada:"
+                android:textColor="@color/colorBlanco"
+                android:textSize="20dp" />
 
             <Spinner
                 android:id="@+id/UEHoraLlegada"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="21dp"
-                android:layout_marginStart="21dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/UEtxtLlegada"
+                android:background="@drawable/bg_blanco_redondo"
+                android:entries="@array/hora"
                 android:inputType="text"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/UEtxtLlegada"
-                android:textSize="20sp"
-                android:entries="@array/hora"/>
+                android:textColor="@color/colorNegro"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/UEDiaLlegada"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="21dp"
-                android:layout_marginStart="21dp"
-                android:layout_marginTop="20dp"
-                android:inputType="text"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/UEHoraLlegada"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/UEtxtLlegada"
+                android:background="@drawable/bg_blanco_redondo"
                 android:hint="dd/mm/yyyy"
-                android:textSize="20sp"/>
+                android:inputType="text"
+                android:textColor="@color/colorNegro"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/UEtxtSalida"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/UEDiaLlegada"
-                android:text="Día y hora de salida"
-                android:textSize="30sp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/UEDiaLlegada"
+                android:text="Día y hora de salida:"
+                android:textColor="@color/colorBlanco"
+                android:textSize="20dp" />
 
             <Spinner
                 android:id="@+id/UEHoraSalida"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="21dp"
-                android:layout_marginStart="21dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/UEtxtSalida"
+                android:background="@drawable/bg_blanco_redondo"
+                android:entries="@array/hora"
                 android:inputType="text"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/UEtxtSalida"
-                android:textSize="20sp"
-                android:entries="@array/hora"/>
+                android:textColor="@color/colorNegro"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/UEDiaSalida"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="21dp"
-                android:layout_marginStart="21dp"
-                android:layout_marginTop="20dp"
-                android:inputType="text"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/UEHoraSalida"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/UEtxtSalida"
+                android:background="@drawable/bg_blanco_redondo"
                 android:hint="dd/mm/yyyy"
-                android:textSize="20sp"/>
+                android:inputType="text"
+                android:textColor="@color/colorNegro"
+                android:textSize="20sp" />
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_blanco_redondo"
+                android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/UEBuscarTransporte"
                 android:text="Buscar"
                 android:textSize="20sp"
+                android:textAllCaps="false"
                 android:layout_below="@id/UEDiaSalida"/>
 
         </RelativeLayout>

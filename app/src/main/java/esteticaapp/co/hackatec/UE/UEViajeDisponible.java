@@ -1,138 +1,106 @@
 package esteticaapp.co.hackatec.UE;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import android.widget.Button;
 
 import esteticaapp.co.hackatec.R;
+import esteticaapp.co.hackatec.UT.UTInicio;
 
-public class UEViajeDisponible extends AppCompatActivity implements OnMapReadyCallback{
+public class UEViajeDisponible extends AppCompatActivity {
 
-    private GoogleMap mMap;
-    private MapView mMapView;
+    private DatabaseReference serviciosDatabase;
 
-    private DatabaseReference viajesDatabase;
+    private FirebaseRecyclerAdapter<ObjViaje,ObjServicioViewHolder.ViewHolder> adapterListaServicios;
+    private RecyclerView listaServicios;
 
-    private FirebaseRecyclerAdapter<ObjViaje,ObjViajeViewHolder.ViewHolder> adapterListaViaje;
-    private RecyclerView listaViajes;
+    private ImageView imagenServicio;
+    private TextView empresaServicio;
+    private TextView origendestinoServicio;
+    private TextView salidaServicio;
+    private TextView llegadaServicio;
+    private TextView rutaServicio;
+    private TextView costoServicio;
 
-    Button Registrar;
+    private Button Registrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ueviaje_disponible);
 
-        mMapView = findViewById(R.id.mapaUbicacionDisponible);
-        if (mMapView != null) {
-            mMapView.onCreate(null);
-            mMapView.onResume();
-            mMapView.getMapAsync(this);
-        }
+        imagenServicio = (ImageView) findViewById(R.id.imagenServicio);
+        empresaServicio = (TextView) findViewById(R.id.empresaServicio);
+        origendestinoServicio = (TextView) findViewById(R.id.origendestinoServicio);
+        salidaServicio = (TextView) findViewById(R.id.salidaServicio);
+        llegadaServicio = (TextView) findViewById(R.id.llegadaServicio);
+        rutaServicio = (TextView) findViewById(R.id.rutaServicio);
+        costoServicio = (TextView) findViewById(R.id.costoServicio);
 
+        Registrar  = (Button) findViewById(R.id.agregarServicio);
 
-        viajesDatabase = FirebaseDatabase.getInstance().getReference().child("/viajes/");
+        serviciosDatabase = FirebaseDatabase.getInstance().getReference().child("/viajes/");
 
-        listaViajes = findViewById(R.id.listaViajesDisponibles);
+        listaServicios = findViewById(R.id.listaViajesDisponibles);
 
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(UEViajeDisponible.this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        listaViajes.setLayoutManager(linearLayoutManager);
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        listaServicios.setLayoutManager(linearLayoutManager);
 
 
-        adapterListaViaje=new FirebaseRecyclerAdapter<ObjViaje, ObjViajeViewHolder.ViewHolder>(
+        Registrar.setOnClickListener(new View.OnClickListener() {//pasar a la siguiente pantalla
+            @Override
+            public void onClick(View v) {//el evento de click para confirmar la cita
+                //databaseReference.child("Cliente").child("-LZ7qvRwVs31M-cE2G8D").child("promociones").push().child("nombre").setValue(txtCorreo.getText().toString());
+                Toast.makeText(UEViajeDisponible.this, "Servicio contratado", Toast.LENGTH_SHORT).show();
+                Intent intencion = new Intent(getApplication(), UEInicio.class);
+                startActivity(intencion);
+                finish();
+            }
+        });
+
+        adapterListaServicios=new FirebaseRecyclerAdapter<ObjViaje, ObjServicioViewHolder.ViewHolder>(
                 ObjViaje.class,
-                R.layout.obj_lista_viaje,
-                ObjViajeViewHolder.ViewHolder.class,
-                viajesDatabase
+                R.layout.obj_lista_servicio_disponible,
+                ObjServicioViewHolder.ViewHolder.class,
+                serviciosDatabase
         ) {
             @Override
-            protected void populateViewHolder(final ObjViajeViewHolder.ViewHolder viewHolder,
+            protected void populateViewHolder(final ObjServicioViewHolder.ViewHolder viewHolder,
                                               final ObjViaje model, final int position) {
-                viewHolder.nombre.setText(model.getNombreChofer());
-                viewHolder.fechaLlegada.setText(model.getDiaLlegada()+" - "+model.getHoraLlegada());
-                viewHolder.fechaSalida.setText(model.getDiaSalida()+" - "+model.getHoraSalida());
-                viewHolder.precio.setText(String.valueOf(model.getCosto()));
+                viewHolder.servicio.setText(model.getNombreChofer());
+                //viewHolder.imagen
+                viewHolder.costo.setText(String.valueOf(model.getCosto()));
 
                 viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        empresaServicio.setText(model.getEmpresa());
+                        origendestinoServicio.setText(model.getOrigen()+" a "+model.getDestino());
+                        salidaServicio.setText(model.getDiaSalida());
+                        llegadaServicio.setText(model.getDiaLlegada());
+                        rutaServicio.setText(model.getRuta());
+                        costoServicio.setText(String.valueOf(model.getCosto()));
 
-                        LatLng puntoViaje = new LatLng(model.getLatitud(), model.getLongitud());
-                        mMap.addMarker(new MarkerOptions()
-                                .position(puntoViaje)
-                                .title(model.getNombreChofer())
-                                .snippet(model.getLatitud()+","+model.getLongitud())
-                                .icon(bitmapDescriptorFromVector(UEViajeDisponible.this,R.drawable.ic_transporte))
-                        );
-                        CameraPosition cameraPosition = new CameraPosition.Builder().target(puntoViaje).zoom(15).build();
-                        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                     }
                 });
 
             }
         };
 
-        listaViajes.setAdapter(adapterListaViaje);
+        listaServicios.setAdapter(adapterListaServicios);
     }
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
 
-
-        // Controles UI
-        if (ContextCompat.checkSelfPermission(UEViajeDisponible.this, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-        } else {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(UEViajeDisponible.this,
-                    Manifest.permission.ACCESS_FINE_LOCATION)) {
-                // Mostrar diálogo explicativo
-            } else {
-                // Solicitar permiso
-                ActivityCompat.requestPermissions(
-                        UEViajeDisponible.this,
-                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                        1);
-            }
-        }
-
-        mMap.getUiSettings().setZoomControlsEnabled(true);
-        mMap.setMyLocationEnabled(true);
-
-    }
-    private BitmapDescriptor bitmapDescriptorFromVector(Context context, @DrawableRes int vectorResId) {
-        Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorResId);
-        vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
-        Bitmap bitmap = Bitmap.createBitmap(vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
-        vectorDrawable.draw(canvas);
-        return BitmapDescriptorFactory.fromBitmap(bitmap);
-    }
 }

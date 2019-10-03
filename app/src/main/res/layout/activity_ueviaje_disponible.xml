@@ -4,21 +4,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img_fondo"
     tools:context=".UE.UEViajeDisponible">
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapaUbicacionDisponible"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
+<RelativeLayout
+    android:id="@+id/datosServicios"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    >
+    <ImageView
+        android:id="@+id/imagenServicio"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@mipmap/ic_launcher"
+        android:layout_below="@+id/empresaServicio"
+        />
+
+
+    <TextView
+        android:id="@+id/empresaServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp" />
+        android:textColor="@color/colorBlanco"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/origendestinoServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignTop="@+id/imagenServicio"
+        android:layout_toRightOf="@+id/imagenServicio"
+
+        android:gravity="left"
+        android:textColorHint="@color/colorGris"
+        android:textSize="22dp"
+        android:drawableLeft="@drawable/ic_oriydes"
+        android:drawablePadding="5dp"
+        android:textColor="@color/colorBlanco"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/salidaServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="3dp"
+        android:drawableLeft="@drawable/ic_salida"
+        android:textColorHint="@color/colorGris"
+        android:textSize="18dp"
+        android:gravity="left"
+        android:textColor="@color/colorBlanco"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/origendestinoServicio"
+        android:layout_alignLeft="@+id/origendestinoServicio"
+        android:layout_alignStart="@+id/origendestinoServicio"
+        android:layout_alignRight="@+id/origendestinoServicio"
+        android:layout_alignEnd="@+id/origendestinoServicio" />
+
+    <TextView
+        android:id="@+id/llegadaServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="3dp"
+        android:drawableLeft="@drawable/ic_llegada"
+        android:gravity="left"
+        android:textColorHint="@color/colorGris"
+        android:textSize="18dp"
+        android:textColor="@color/colorBlanco"
+        android:layout_below="@+id/salidaServicio"
+        android:layout_alignLeft="@+id/salidaServicio"
+        android:layout_alignStart="@+id/salidaServicio"
+        android:layout_alignRight="@+id/salidaServicio"
+        android:layout_alignEnd="@+id/salidaServicio" />
+
+    <TextView
+        android:id="@+id/rutaServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/llegadaServicio"
+        android:layout_alignStart="@+id/llegadaServicio"
+        android:layout_below="@+id/llegadaServicio"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="3dp"
+        android:drawableLeft="@drawable/ic_ruta"
+        android:gravity="left"
+        android:textColorHint="@color/colorGris"
+        android:textSize="18dp"
+        android:textColor="@color/colorBlanco"
+        android:layout_alignRight="@+id/llegadaServicio"
+        android:layout_alignEnd="@+id/llegadaServicio" />
+
+    <TextView
+        android:id="@+id/costoServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/rutaServicio"
+        android:layout_alignStart="@+id/rutaServicio"
+        android:layout_below="@+id/rutaServicio"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="3dp"
+        android:drawableLeft="@drawable/ic_costo"
+        android:gravity="left"
+        android:textColorHint="@color/colorGris"
+        android:textSize="18dp"
+        android:textColor="@color/colorBlanco"
+        android:layout_alignRight="@+id/rutaServicio"
+        android:layout_alignEnd="@+id/rutaServicio" />
+
+
+</RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/listaViajesDisponibles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/mapaUbicacionDisponible"
+        android:layout_below="@+id/datosServicios"
+        android:layout_margin="15dp"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/agregarServicio"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/bg_blanco_redondo"
+        android:text="Contratar servicio"
+        android:textAllCaps="false" />
 
 </RelativeLayout>

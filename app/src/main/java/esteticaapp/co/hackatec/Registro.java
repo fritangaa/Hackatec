@@ -116,7 +116,7 @@ public class Registro extends AppCompatActivity {
         botonRegistrarTransportista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validaUsuario();
+                validaUsuarioTransportista();
 
             }
         });
@@ -144,7 +144,7 @@ public class Registro extends AppCompatActivity {
         }
     }
 
-    private void validaUsuario(){
+    private void validaUsuarioTransportista(){
 
         //Obtenemos el email y la contraseña desde las cajas de texto
         final String password  = textoTContrasena.getText().toString().trim();
