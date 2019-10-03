@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/img_fondo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login">
@@ -13,6 +12,7 @@
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginTop="20dp"
+        android:src="@drawable/ic_logo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         tools:layout_editor_absoluteX="107dp"
@@ -31,7 +31,7 @@
         android:imeOptions="actionNext"
         android:inputType="textEmailAddress"
         android:singleLine="true"
-        android:textColor="@color/colorBlanco"
+        android:textColor="@color/colorNegro"
         android:textColorHint="@color/colorGris"
         tools:layout_editor_absoluteX="67dp"
         tools:layout_editor_absoluteY="246dp" />
@@ -50,7 +50,7 @@
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:singleLine="true"
-        android:textColor="@color/colorBlanco"
+        android:textColor="@color/colorNegro"
         android:textColorHint="@color/colorGris"
         tools:layout_editor_absoluteX="67dp"
         tools:layout_editor_absoluteY="305dp" />
@@ -63,18 +63,18 @@
         android:layout_alignStart="@+id/txtCorreoLogin"
         android:layout_below="@+id/txtPassLogin"
         android:text="Recuerdame"
-        android:textColor="@color/colorBlanco"
+        android:textColor="@color/colorNegro"
         android:textSize="16dp" />
 
     <Button
         android:id="@+id/btnInicioLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/ckRecuerda"
         android:layout_centerHorizontal="true"
         android:text="Entrar"
-        android:textColor="@color/colorBlanco"
+        android:textColor="@color/colorNegro"
         tools:layout_editor_absoluteX="156dp"
         tools:layout_editor_absoluteY="380dp" />
 
@@ -84,7 +84,7 @@
         android:layout_above="@+id/btnRegistroLogin"
         android:layout_centerHorizontal="true"
         android:text="¿No tienes cuenta aún?"
-        android:textColor="@color/colorBlanco"
+        android:textColor="@color/colorNegro"
         android:textSize="18dp"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="449dp" />
@@ -98,7 +98,7 @@
         android:background="@android:color/transparent"
         android:text="¡ Regístrate !"
         android:textAllCaps="false"
-        android:textColor="@color/colorBlanco"
+        android:textColor="@color/colorNegro"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="141dp"
         tools:layout_editor_absoluteY="503dp" />

@@ -16,8 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import esteticaapp.co.hackatec.R;
-import esteticaapp.co.hackatec.UT.UTDatosFragment;
-import esteticaapp.co.hackatec.UT.UTNotificacionesFragment;
 
 public class UTInicio extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, UTDatosFragment.OnFragmentInteractionListener, UTNotificacionesFragment.OnFragmentInteractionListener {
@@ -98,7 +96,7 @@ public class UTInicio extends AppCompatActivity
         }
 
         if (fragmentSeleccionado == true){
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_utinicio, miFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.hola, miFragment).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
