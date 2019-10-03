@@ -49,6 +49,12 @@
         <item>22:00</item>
         <item>23:00</item>
     </string-array>
+    
+    <string-array name="sexo">
+        <item>Elija una opción</item>
+        <item>Masculino</item>
+        <item>Femenino</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
