@@ -13,5 +13,4 @@
             android:icon="@drawable/ic_datos"
             android:title="Gallery" />
     </group>
-
 </menu>
