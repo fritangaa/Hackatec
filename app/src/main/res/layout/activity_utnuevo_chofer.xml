@@ -4,11 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img_fondo"
     tools:context=".UT.UTNuevoChofer">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        tools:layout_editor_absoluteX="198dp"
+        tools:layout_editor_absoluteY="341dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -16,231 +20,264 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_marginTop="10dp"
+                android:layout_height="40dp"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:text="Nombre"
+                android:textColor="@color/colorBlanco"
                 android:id="@+id/txtChoferNombre"/>
 
             <EditText
-                android:layout_width="280dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:id="@+id/UTChoferNombre"
-                android:layout_toRightOf="@id/txtChoferNombre"/>
+                android:layout_marginTop="5dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/bg_blanco_redondo"
+                android:inputType="text"
+                android:textColor="@color/colorNegro"/>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_marginTop="15dp"
+                android:layout_height="40dp"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:text="Primer apellido"
                 android:layout_below="@id/txtChoferNombre"
+                android:textColor="@color/colorBlanco"
                 android:id="@+id/txtChoferApellidoP"/>
 
             <EditText
-                android:layout_width="190dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
                 android:id="@+id/UTChoferApellidoP"
+                android:layout_alignParentEnd="true"
                 android:layout_below="@id/UTChoferNombre"
-                android:layout_toRightOf="@id/txtChoferApellidoP"/>
+                android:background="@drawable/bg_blanco_redondo"
+                android:inputType="text"
+                android:textColor="@color/colorNegro"/>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_marginTop="15dp"
+                android:layout_height="40dp"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:text="Segundo apellido"
                 android:layout_below="@id/txtChoferApellidoP"
+                android:textColor="@color/colorBlanco"
                 android:id="@+id/txtChoferApellidoM"/>
 
             <EditText
-                android:layout_width="190dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:id="@+id/UTChoferApellidoM"
                 android:layout_below="@id/UTChoferApellidoP"
-                android:layout_toRightOf="@id/txtChoferApellidoM"/>
+                android:layout_marginTop="5dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_blanco_redondo"
+                android:inputType="text"
+                android:textColor="@color/colorNegro"/>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_marginTop="15dp"
+                android:layout_height="40dp"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorBlanco"
                 android:text="Nickname"
                 android:layout_below="@id/txtChoferApellidoM"
                 android:id="@+id/txtChoferNickname"/>
 
             <EditText
                 android:id="@+id/UTChoferNickname"
-                android:layout_width="251dp"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
                 android:layout_below="@id/UTChoferApellidoM"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@id/txtChoferNickname" />
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_blanco_redondo"
+                android:inputType="text"
+                android:textColor="@color/colorNegro" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_marginTop="15dp"
+                android:layout_height="40dp"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:text="Email"
                 android:layout_below="@id/txtChoferNickname"
+                android:textColor="@color/colorBlanco"
                 android:id="@+id/txtChoferEmail"/>
 
             <EditText
                 android:id="@+id/UTChoferEmail"
-                android:layout_width="261dp"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:layout_below="@id/UTChoferNickname"
-                android:layout_marginLeft="67dp"
-                android:layout_marginTop="4dp"
-                android:layout_toRightOf="@id/txtChoferEmail" />
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_blanco_redondo"
+                android:layout_marginTop="5dp"
+                android:inputType="text"
+                android:textColor="@color/colorNegro"/>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_marginTop="15dp"
+                android:layout_height="40dp"
+                android:textColor="@color/colorBlanco"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:text="Contraseña"
                 android:layout_below="@id/txtChoferEmail"
                 android:id="@+id/txtChoferContrasenia"/>
 
             <EditText
                 android:id="@+id/UTChoferContrasenia"
-                android:layout_width="226dp"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:layout_below="@id/UTChoferEmail"
-                android:layout_marginLeft="17dp"
                 android:layout_marginTop="5dp"
-                android:layout_toRightOf="@id/txtChoferContrasenia"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_blanco_redondo"
+                android:textColor="@color/colorNegro"
                 android:inputType="textPassword" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_marginTop="15dp"
+                android:layout_height="40dp"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:text="Confirmar contraseña"
                 android:layout_below="@id/txtChoferContrasenia"
+                android:textColor="@color/colorBlanco"
                 android:id="@+id/txtChoferContrasenia2"/>
 
             <EditText
                 android:id="@+id/UTChoferContrasenia2"
-                android:layout_width="261dp"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
                 android:layout_below="@id/UTChoferContrasenia"
-                android:layout_marginLeft="-222dp"
-                android:layout_marginTop="71dp"
-                android:layout_toRightOf="@id/txtChoferContrasenia2"
-                android:inputType="textPassword" />
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_blanco_redondo"
+                android:inputType="textPassword"
+                android:textColor="@color/colorNegro" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_marginTop="15dp"
+                android:layout_height="40dp"
+                android:textColor="@color/colorBlanco"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:text="Tipo de cuenta"
                 android:layout_below="@id/UTChoferContrasenia2"
                 android:id="@+id/txtChoferCuenta"/>
 
             <EditText
                 android:id="@+id/UTChoferCuenta"
-                android:layout_width="191dp"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:layout_below="@id/UTChoferContrasenia2"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="11dp"
-                android:layout_toRightOf="@id/txtChoferCuenta"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_blanco_redondo"
+                android:textColor="@color/colorNegro"
+                android:layout_marginTop="5dp"
                 android:inputType="text" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_marginTop="15dp"
+                android:layout_height="40dp"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:text="Telefono"
                 android:layout_below="@id/txtChoferCuenta"
+                android:textColor="@color/colorBlanco"
                 android:id="@+id/txtChoferTel"/>
 
             <EditText
                 android:id="@+id/UTChoferTel"
-                android:layout_width="191dp"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:layout_below="@id/UTChoferCuenta"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="11dp"
-                android:layout_toRightOf="@id/txtChoferTel"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_blanco_redondo"
+                android:textColor="@color/colorNegro"
+                android:layout_marginTop="5dp"
                 android:inputType="number" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_marginTop="15dp"
+                android:layout_height="40dp"
+                android:textColor="@color/colorBlanco"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:text="Sexo"
                 android:layout_below="@id/txtChoferTel"
                 android:id="@+id/txtChoferSexo"/>
 
             <Spinner
                 android:id="@+id/UTChoferSexo"
-                android:layout_width="191dp"
-                android:layout_height="50dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:layout_below="@id/UTChoferTel"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="11dp"
-                android:layout_toRightOf="@id/txtChoferSexo"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_blanco_redondo"
+                android:textColor="@color/colorNegro"
+                android:layout_marginTop="5dp"
                 android:entries="@array/sexo" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_marginTop="15dp"
+                android:layout_height="40dp"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:text="N.S.S."
                 android:layout_below="@id/txtChoferSexo"
+                android:textColor="@color/colorBlanco"
                 android:id="@+id/txtChoferNSS"/>
 
             <EditText
                 android:id="@+id/UTChoferNSS"
-                android:layout_width="191dp"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:layout_below="@id/UTChoferSexo"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="11dp"
-                android:layout_toRightOf="@id/txtChoferNSS"
-                android:inputType="number" />
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_blanco_redondo"
+                android:inputType="number"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorNegro"/>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_marginTop="15dp"
+                android:layout_height="40dp"
+                android:textColor="@color/colorBlanco"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:text="Empresa"
                 android:layout_below="@id/txtChoferNSS"
                 android:id="@+id/txtChoferEmpresa"/>
 
             <EditText
                 android:id="@+id/UTChoferEmpresa"
-                android:layout_width="191dp"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:layout_below="@id/UTChoferNSS"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="11dp"
-                android:layout_toRightOf="@id/txtChoferEmpresa" />
+                android:layout_marginTop="5dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_blanco_redondo"
+                android:inputType="text"
+                android:textColor="@color/colorNegro"/>
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_below="@id/UTChoferEmpresa"
+                android:background="@drawable/bg_blanco_redondo"
                 android:text="Registrar"
-                android:textSize="20sp"
-                android:layout_below="@id/UTChoferEmpresa"/>
+                android:textAllCaps="false"
+                android:layout_marginTop="5dp"
+                android:textSize="20sp" />
 
         </RelativeLayout>
     </ScrollView>
