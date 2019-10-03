@@ -45,6 +45,10 @@
             android:name=".UT.UTInicio"
             android:label="@string/title_activity_utinicio"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".UE.UEViajeDisponible"
+            android:label="UEViajeDisponible"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

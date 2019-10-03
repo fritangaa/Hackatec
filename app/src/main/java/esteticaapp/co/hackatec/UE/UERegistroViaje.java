@@ -43,7 +43,7 @@ public class UERegistroViaje extends AppCompatActivity {
                     if(!tipoCarga.getSelectedItem().toString().equals("Elija una opción")){
                         if((!dimension.getText().toString().isEmpty()) || (!peso.getText().toString().isEmpty())){
                             if((!horaLlegada.getSelectedItem().toString().isEmpty()) || (!horaSalida.getSelectedItem().toString().isEmpty())){
-                                if(dimension.getText().toString().matches("[0-9]{2}(\*)[0-9]{2}(\*)[0-9]{2}")){
+                                if(dimension.getText().toString().matches("[0-9]{2}(\\*)[0-9]{2}(\\*)[0-9]{2}")){
                                     if((diaLlegada.getText().toString().matches("([012][1-9]|3[01])(\\/)(0[1-9]|1[012])(\\/)2019"))
                                             && (diaSalida.getText().toString().matches("([012][1-9]|3[01])(\\/)(0[1-9]|1[012])(\\/)2019"))){
                                         Intent intent = new Intent(getApplicationContext(),UEViajeDisponible.class);
