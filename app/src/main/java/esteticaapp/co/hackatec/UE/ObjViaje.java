@@ -2,22 +2,22 @@ package esteticaapp.co.hackatec.UE;
 
 public class ObjViaje {
 
-    private String nombreChofer;
-    private String origen;
-    private String destino;
-    private String tipoCarga;
-    private Double volumen;
-    private Double peso;
-    private String diaSalida;
-    private String horaSalida;
-    private String diaLlegada;
-    private String horaLlegada;
-    private String ruta;
-    private String empresa;
-    private Double latitud;
-    private Double longitud;
-    private Double kilometraje;
-    private Double costo;
+    public String nombreChofer;
+    public String origen;
+    public String destino;
+    public String tipoCarga;
+    public Double volumen;
+    public Double peso;
+    public String diaSalida;
+    public String horaSalida;
+    public String diaLlegada;
+    public String horaLlegada;
+    public String ruta;
+    public String empresa;
+    public Double latitud;
+    public Double longitud;
+    public Double kilometraje;
+    public Double costo;
 
     public ObjViaje() {
     }
