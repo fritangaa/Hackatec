@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -25,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import esteticaapp.co.hackatec.UE.UEInicio;
+import esteticaapp.co.hackatec.UT.UTInicio;
 import esteticaapp.co.hackatec.preferencias.GuardarUsuario;
 
 public class Login extends AppCompatActivity {
@@ -44,6 +46,8 @@ public class Login extends AppCompatActivity {
 
     private Button btnInicio;
     private Button btnRegistro;
+
+    private TextView iniciout;
 
 
     @Override
@@ -81,6 +85,8 @@ public class Login extends AppCompatActivity {
 
         btnInicio = findViewById(R.id.btnInicioLogin);
         btnRegistro = findViewById(R.id.btnRegistroLogin);
+
+        iniciout = findViewById(R.id.iniciout);
 
         ckRecuerdame.setOnClickListener(new View.OnClickListener() {//asignar valor al checkbox
             //ACTIVADO
@@ -124,6 +130,18 @@ public class Login extends AppCompatActivity {
             }
         });
 
+
+        iniciout.setOnClickListener(new View.OnClickListener() {//pasar a la siguiente pantalla
+            @Override
+            public void onClick(View v) {//el evento de click para confirmar la cita
+                //databaseReference.child("Cliente").child("-LZ7qvRwVs31M-cE2G8D").child("promociones").push().child("nombre").setValue(txtCorreo.getText().toString());
+                //Toast.makeText(Login.this, "datos", Toast.LENGTH_SHORT).show();
+                //Intent intencion = new Intent(getApplication(), Registro.class);
+                Intent intencion = new Intent(getApplication(), UTInicio.class);
+                startActivity(intencion);
+                finish();
+            }
+        });
     }
 
     private void loguearUsuario() {

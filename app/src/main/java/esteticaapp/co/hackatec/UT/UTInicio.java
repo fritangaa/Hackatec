@@ -97,18 +97,18 @@ public class UTInicio extends AppCompatActivity
 
         listaViajes = findViewById(R.id.listaTransportista);
 
-        if(random.nextBoolean()){
+        if (random.nextBoolean()) {
             consulta = viajesDatabase.child("empresa").equalTo("dhl");
-        }else{
+        } else {
             consulta = viajesDatabase.child("empresa").equalTo("estafeta");
         }
 
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(UTInicio.this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(UTInicio.this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         listaViajes.setLayoutManager(linearLayoutManager);
 
 
-        adapterListaViaje=new FirebaseRecyclerAdapter<ObjViaje, ObjViajeViewHolder.ViewHolder>(
+        adapterListaViaje = new FirebaseRecyclerAdapter<ObjViaje, ObjViajeViewHolder.ViewHolder>(
                 ObjViaje.class,
                 R.layout.obj_lista_viaje,
                 ObjViajeViewHolder.ViewHolder.class,
@@ -118,8 +118,8 @@ public class UTInicio extends AppCompatActivity
             protected void populateViewHolder(final ObjViajeViewHolder.ViewHolder viewHolder,
                                               final ObjViaje model, final int position) {
                 viewHolder.nombre.setText(model.getNombreChofer());
-                viewHolder.fechaLlegada.setText(model.getDiaLlegada()+" - "+model.getHoraLlegada());
-                viewHolder.fechaSalida.setText(model.getDiaSalida()+" - "+model.getHoraSalida());
+                viewHolder.fechaLlegada.setText(model.getDiaLlegada() + " - " + model.getHoraLlegada());
+                viewHolder.fechaSalida.setText(model.getDiaSalida() + " - " + model.getHoraSalida());
                 viewHolder.precio.setText(String.valueOf(model.getCosto()));
 
                 viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -130,23 +130,24 @@ public class UTInicio extends AppCompatActivity
                         mMap.addMarker(new MarkerOptions()
                                 .position(puntoViaje)
                                 .title(model.getNombreChofer())
-                                .snippet(model.getLatitud()+","+model.getLongitud())
-                                .icon(bitmapDescriptorFromVector(UTInicio.this,R.drawable.ic_transporte))
+                                .snippet(model.getLatitud() + "," + model.getLongitud())
+                                .icon(bitmapDescriptorFromVector(UTInicio.this, R.drawable.ic_transporte))
                         );
                         CameraPosition cameraPosition = new CameraPosition.Builder().target(puntoViaje).zoom(15).build();
                         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
-                        try{
+                        try {
                             Thread.sleep(3000);
-                        }catch (InterruptedException e){
+                        } catch (InterruptedException e) {
                             System.out.println("PAUSA");
-                        };
+                        }
+                        ;
 
                         Intent intent = new Intent(getApplicationContext(), UTDatosServicio.class);
-                        intent.putExtra("NOMBRE",model.getNombreChofer());
-                        intent.putExtra("ESTADO",model.getDestino());
-                        intent.putExtra("CARGA",model.getTipoCarga());
-                        intent.putExtra("KM",model.getKilometraje());
+                        intent.putExtra("NOMBRE", model.getNombreChofer());
+                        intent.putExtra("ESTADO", model.getDestino());
+                        intent.putExtra("CARGA", model.getTipoCarga());
+                        intent.putExtra("KM", model.getKilometraje());
                         startActivity(intent);
                     }
                 });
@@ -239,29 +240,32 @@ public class UTInicio extends AppCompatActivity
         } else if (id == R.id.nav_datos) {
             miFragment = new UTDatosFragment();
             fragmentSeleccionado = true;
-        } else if( id == R.id.navigation_new){
-            Intent intent = new Intent(getApplicationContext(),UTNuevoTransporte.class);
+        } else if (id == R.id.navigation_new) {
+            Intent intent = new Intent(getApplicationContext(), UTNuevoTransporte.class);
             startActivity(intent);
-        } else if( id == R.id.navigation_driver){
-            Intent intent = new Intent(getApplicationContext(),UTNuevoChofer.class);
+        } else if (id == R.id.navigation_driver) {
+            Intent intent = new Intent(getApplicationContext(), UTNuevoChofer.class);
             startActivity(intent);
 
-        if (fragmentSeleccionado == true){
-            getSupportFragmentManager().beginTransaction().replace(R.id.hola, miFragment).commit();
+            if (fragmentSeleccionado == true) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.hola, miFragment).commit();
+            }
+
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+
         }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
+    public void onFragmentInteraction (Uri uri){
 
     }
 
     @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
+    public void onPointerCaptureChanged ( boolean hasCapture){
 
     }
 }
+
