@@ -247,14 +247,15 @@ public class UTInicio extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), UTNuevoChofer.class);
             startActivity(intent);
 
-            if (fragmentSeleccionado == true) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.hola, miFragment).commit();
-            }
-
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-
         }
+
+        if (fragmentSeleccionado == true) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.hola, miFragment).commit();
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+
         return true;
     }
 

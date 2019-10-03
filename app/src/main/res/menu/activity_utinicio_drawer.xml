@@ -7,10 +7,20 @@
         <item
             android:id="@+id/nav_notificaciones"
             android:icon="@drawable/ic_notificacion"
-            android:title="Import" />
+            android:title="Notificaciones" />
         <item
             android:id="@+id/nav_datos"
             android:icon="@drawable/ic_datos"
-            android:title="Gallery" />
+            android:title="Datos" />
+
+        <item
+            android:id="@+id/navigation_new"
+            android:icon="@drawable/ic_dashboard_black_24dp"
+            android:title="Nuevo camion"/>
+
+        <item
+            android:id="@+id/navigation_driver"
+            android:icon="@drawable/ic_dashboard_black_24dp"
+            android:title="Nuevo conductor"/>
     </group>
 </menu>
