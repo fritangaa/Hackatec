@@ -239,7 +239,12 @@ public class UTInicio extends AppCompatActivity
         } else if (id == R.id.nav_datos) {
             miFragment = new UTDatosFragment();
             fragmentSeleccionado = true;
-        }
+        } else if( id == R.id.navigation_new){
+            Intent intent = new Intent(getApplicationContext(),UTNuevoTransporte.class);
+            startActivity(intent);
+        } else if( id == R.id.navigation_driver){
+            Intent intent = new Intent(getApplicationContext(),UTNuevoChofer.class);
+            startActivity(intent);
 
         if (fragmentSeleccionado == true){
             getSupportFragmentManager().beginTransaction().replace(R.id.hola, miFragment).commit();
