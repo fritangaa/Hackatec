@@ -13,9 +13,9 @@ public class ObjViajeViewHolder {
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener{
 
-        CardView cardView;
-        ImageView logo;
-        TextView nombre,fechaSalida,fechaLlegada,precio;
+        public CardView cardView;
+        public ImageView logo;
+        public TextView nombre,fechaSalida,fechaLlegada,precio;
 
         ItemLongClickListener itemLongClickListener;
 
